@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class DetectRecession{
+  //method that tells user the expected outcome based on the number of factors of an upcoming recession that are true
+  public static Scanner input = new Scanner(System.in);
+  public static String recessionPrediction(){
+    if(UserInput.numFactorsTrue == 0){
+      return "It doesn't seem that there is a recession looming.";
+    }
+    else if(UserInput.numFactorsTrue == 1){
+      System.out.println("\nHas the market gone down by more than 15% in the last two weeks? (yes/no)");
+      if(input.nextLine().equals("yes")){
+        return "It seems that a recession is looming";
+      }
+      else if(input.nextLine().equals("no")){
+        return "Be on the lookout for a recession.";
+      }
+      else{
+        return "Error: invalid input";
+      }
+    }
+    else if(UserInput.numFactorsTrue == 2){
+      System.out.println("By what percentage has the market gone down in the last two weeks?");
+      if(input.nextDouble() < 30){
+      return "Now's the time to sell. There could be a recession coming up.";
+      }
+      else if (input.nextDouble() > 30){
+        return "Now would be a good time to buy back some stocks.";
+      }
+    }
+    else{
+      return "It seems that something went wrong. Try again.";
+    }
+    return "";
+  }
+}
