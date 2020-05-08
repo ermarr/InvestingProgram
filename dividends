@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Dividends{
+  static double initPrice;
+  static double finalPrice;
+  static Scanner input = new Scanner(System.in);
+  //method that determines how much profit the user will make based on inputs
+  public static double determineDividends(){
+    System.out.println();
+    System.out.println("What was the price of your selected stock at the time of purchase?");
+    if(input.hasNextDouble()){
+      initPrice = input.nextDouble();
+    }
+    else{
+      System.out.println("Error: invalid data entered");
+    }
+    System.out.println("What is the price of your selected stock at the current time?");
+    if(input.hasNextDouble()){
+      finalPrice = input.nextDouble();
+    }
+    else{
+      System.out.println("Error: invalid data entered");
+    }
+    double ans = ((finalPrice-initPrice)/initPrice);
+    return 100*ans;
+  }
+}
