@@ -1,0 +1,10 @@
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+    System.out.println("This program detects a looming recession based on user inputs.");
+    System.out.println();
+    UserInput.takeInputs();
+    System.out.println(DetectRecession.recessionPrediction());
+    System.out.println("Your dividends will be: "+Dividends.determineDividends()+"%");
+  }
+}
