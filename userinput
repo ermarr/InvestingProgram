@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class UserInput{
+  static Scanner input = new Scanner(System.in);
+  static boolean bondYieldCurve;
+  static boolean LEI;
+  static int numFactorsTrue = 0;
+  
+  //method that takes user inputs to determine whether the model factors for a recession are true
+  public static void takeInputs(){
+    System.out.println("Is the bond yield curve inverted? (yes/no)");
+    String yOrN = input.nextLine();
+    if(yOrN.equals("yes")){
+      bondYieldCurve = true;
+      numFactorsTrue++;
+    }
+    else if(yOrN.equals("no")){
+      bondYieldCurve = false;
+    }
+    else{
+      System.out.println("Error: invalid input");
+    }
+
+    System.out.println("Is the Leading Economic Index (LEI) slowing growth? (yes/no)");
+    String yesOrNo = input.nextLine();
+    if(yesOrNo.equals("yes")){
+      LEI = true;
+      numFactorsTrue++;
+    }
+    else if(yesOrNo.equals("no")){
+      LEI = false;
+    }
+    else{
+      System.out.println("Error: invalid input");
+    }
+  }
+}
